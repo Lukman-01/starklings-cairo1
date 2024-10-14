@@ -1,10 +1,8 @@
 // functions3.cairo
 // Execute `starklings hint functions3` or use the `hint` watch subcommand for a hint.
 
-// I AM NOT DONE
-
 fn main() {
-    call_me();
+    call_me(2000);
 }
 
 fn call_me(num: u64) {
