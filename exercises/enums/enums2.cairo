@@ -1,13 +1,16 @@
 // enums2.cairo
 // Execute `starklings hint enums2` or use the `hint` watch subcommand for a hint.
 
-// I AM NOT DONE
 
 use debug::PrintTrait;
 
 
 #[derive(Copy, Drop)]
 enum Message { // TODO: define the different variants used below
+    Quit,
+    Echo: felt252,
+    Move: (u8,u8),
+    ChangeColor: (u8,u8,u8),
 }
 
 
