@@ -3,21 +3,21 @@
 // Learn how to convert between integer types, and felts.
 // Execute `starklings hint primitive_types4` or use the `hint` watch subcommand for a hint.
 
-// I AM NOT DONE
-
 fn sum_u8s(x: u8, y: u8) -> u8 {
     x + y
 }
 
 //TODO modify the types of this function to prevent an overflow when summing big values
-fn sum_big_numbers(x: u8, y: u8) -> u8 {
-    x + y
+fn sum_big_numbers(x: u8, y: u8) -> u16 {
+    x.into() + y.into()
 }
 
 fn convert_to_felt(x: u8) -> felt252 { //TODO return x as a felt252.
+    x.into()
 }
 
 fn convert_felt_to_u8(x: felt252) -> u8 { //TODO return x as a u8.
+    x.try_into().unwrap()
 }
 
 #[test]
@@ -31,7 +31,7 @@ fn test_sum_big_numbers() {
     // Don't modify the values, just the types.
     // See how using the _u8 suffix on the numbers lets us specify the type?
     // Try to do the same thing with other integer types.
-    assert(sum_big_numbers(255_u8, 255_u8) == 510_u8, 'Something went wrong');
+    assert(sum_big_numbers(255_u8, 255_u8) == 510_u16, 'Something went wrong');
 }
 
 #[test]
